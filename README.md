@@ -37,4 +37,4 @@ Heart disease is a significant cause of mortality globally, and the dataset, sou
 
 ## Project Details
 
-For more details about the project, including datasets and analysis, visit our GitHub Pages website: [Datamining 2024-10 Indicators of Heart Disease](https://tunombredeusuario.github.io/nombredeturepositorio)
+For more details about the project, including datasets and analysis, visit our GitHub Pages website: [Datamining 2024-10 Indicators of Heart Disease](https://AnwiiD.github.io/DataMining-Heart-Failure)
