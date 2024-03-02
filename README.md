@@ -39,16 +39,24 @@ For more details about the project, including datasets and analysis, visit our G
 In our analysis, we employed various visualization techniques with the BRFSS dataset:
 ### Correlation Heatmap:
 We created a correlation heatmap to explore relationships between different variables, particularly those related to key indicators of heart disease. This heatmap provided a quick overview of positive or negative associations among the selected variables.
+<p aling= "center">
 <img src="assets/co.png" alt="" width="500"/>
+</p>
 ### Countplot by Gender: 
 We generated a countplot to visualize the distribution of heart disease cases based on gender. This type of plot allowed us to determine whether heart disease is more prevalent in males or females, offering a general perspective on the prevalence in the surveyed population.
+<p aling= "center">
 <img src="assets/gender.png" alt="" width="500"/>
+</p>
 ### Age-Grouped Heart Attacks by Gender:
 We grouped heart attack cases by age and gender to gain a more detailed understanding of how the incidence of heart disease varies across different demographic groups. This helped us identify potential patterns or significant differences in prevalence between males and females in different age brackets.
+<p aling= "center">
 <img src="assets/FandM.png" alt="" width="500"/>
+</p>
 ### Associations Among Cardiovascular Events:
 Insights into Heart Attacks, Angina, and Strokes"** Additionally, we created another visualization to demonstrate that individuals experiencing heart attacks also tend to suffer from angina and strokes. This graphic provided insights into the co-occurrence of these cardiovascular events, highlighting potential common risk factors or associations within the dataset."
+<p aling= "center">
 <img src="assets/comparacionAnginaStroke.png" alt="" width="1000"/>
+</p>
 ## Our Hypothesis
 Based on key indicators of heart disease, we could assert that there is a significant relationship between the prevalence of heart disease and factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, body mass index (BMI), and pre-existing conditions such as high blood pressure, high cholesterol, smoking habits, and diabetes in the adult population surveyed in the BRFSS dataset.
 
