@@ -31,10 +31,6 @@ Meet the team members working on this project:
 **Heart disease** is a significant cause of mortality globally, and the dataset, sourced from the [**2022 annual CDC survey**](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease) of **400k+ adults**, provides invaluable insights into various factors contributing to heart disease prevalence. Our intention with utilizing this dataset is to develop a predictive model that can aid in identifying individuals at risk of heart disease. This is particularly significant in regions like Colombia, where sufficient data and datasets regarding cardiovascular diseases may be lacking. In [Colombia, cardiovascular diseases are the leading cause of mortality](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4705360/), with a significant number of these events being preventable. Given the similarity in risk factors and health patterns, using the CDC dataset on key indicators of heart disease in American adults could provide valuable **insights** to inform preventive and public health strategies in Colombia. By comparing and contrasting demographic and health data between both populations, the research and recommendations could be more effectively tailored, addressing the specific needs and characteristics of the Colombian population. Furthermore, the dataset's richness is evident in its offering of **40 variables** for observation, coupled with over **400k+ samples**.
 
 
-## Project Details
-
-For more details about the project, including datasets and analysis, visit our GitHub Pages website: [Datamining 2024-10 Indicators of Heart Disease](https://AnwiiD.github.io/DataMining-Heart-Failure)
-
 ## Visual Analysis Of Key Heart Disease Indicators: Exploring the BRFSS Dataset
 In our analysis, we employed various visualization techniques with the BRFSS dataset:
 ### Correlation Heatmap:
