@@ -38,3 +38,6 @@ Based on key indicators of heart disease, we could assert that there is a signif
 ## Project Details
 
 For more details about the project, including datasets and analysis, visit our GitHub Pages website: [Datamining 2024-10 Indicators of Heart Disease](https://AnwiiD.github.io/DataMining-Heart-Failure)
+
+## Our Colab 
+In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  **Link:** https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls
