@@ -45,10 +45,10 @@ We generated a countplot to visualize the distribution of heart disease cases ba
 <img src="assets/gender.png" alt="" width="500"/>
 ### Age-Grouped Heart Attacks by Gender:
 We grouped heart attack cases by age and gender to gain a more detailed understanding of how the incidence of heart disease varies across different demographic groups. This helped us identify potential patterns or significant differences in prevalence between males and females in different age brackets.
-<img src="assets/fandm.png" alt="" width="500"/>
+<img src="assets/FandM.png" alt="" width="500"/>
 ### Associations Among Cardiovascular Events:
 Insights into Heart Attacks, Angina, and Strokes"** Additionally, we created another visualization to demonstrate that individuals experiencing heart attacks also tend to suffer from angina and strokes. This graphic provided insights into the co-occurrence of these cardiovascular events, highlighting potential common risk factors or associations within the dataset."
-
+<img src="assets/comparacionAnginaStroke.png" alt="" width="1000"/>
 ## Our Hypothesis
 Based on key indicators of heart disease, we could assert that there is a significant relationship between the prevalence of heart disease and factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, body mass index (BMI), and pre-existing conditions such as high blood pressure, high cholesterol, smoking habits, and diabetes in the adult population surveyed in the BRFSS dataset.
 
