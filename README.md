@@ -39,12 +39,13 @@ For more details about the project, including datasets and analysis, visit our G
 In our analysis, we employed various visualization techniques with the BRFSS dataset:
 ### Correlation Heatmap:
 We created a correlation heatmap to explore relationships between different variables, particularly those related to key indicators of heart disease. This heatmap provided a quick overview of positive or negative associations among the selected variables.
-<img src="assets/c.png" alt="" width="200"/>
+<img src="assets/co.png" alt="" width="500"/>
 ### Countplot by Gender: 
 We generated a countplot to visualize the distribution of heart disease cases based on gender. This type of plot allowed us to determine whether heart disease is more prevalent in males or females, offering a general perspective on the prevalence in the surveyed population.
+<img src="assets/gender.png" alt="" width="500"/>
 ### Age-Grouped Heart Attacks by Gender:
 We grouped heart attack cases by age and gender to gain a more detailed understanding of how the incidence of heart disease varies across different demographic groups. This helped us identify potential patterns or significant differences in prevalence between males and females in different age brackets.
-
+<img src="assets/fandm.png" alt="" width="500"/>
 ### Associations Among Cardiovascular Events:
 Insights into Heart Attacks, Angina, and Strokes"** Additionally, we created another visualization to demonstrate that individuals experiencing heart attacks also tend to suffer from angina and strokes. This graphic provided insights into the co-occurrence of these cardiovascular events, highlighting potential common risk factors or associations within the dataset."
 
