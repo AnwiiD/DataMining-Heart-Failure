@@ -21,7 +21,7 @@ Meet the team members working on this project:
 4. **Sebastian Barandica Oquendo**
    - *Role*: Problem-solving enthusiast
    - *Bio*: 9th-semester systems engineering student, lover of mathematics and problem-solving.
-![WhatsApp Image 2024-02-01 at 6 30 51 PM (1)](https://github.com/AnwiiD/DataMining-Heart-Failure/assets/78710847/220bb1c4-dc3f-499f-b199-c3a4e2b6a8f7)
+![rsz_whatsapp_image_2024-02-01_at_63051_pm_1](https://github.com/AnwiiD/DataMining-Heart-Failure/assets/78710847/ced1aa67-0309-4ab1-807e-6c508de50bc3)
 
 5. **Andrea Carolina Donado Porto**
    - *Role*: Versatile learner
