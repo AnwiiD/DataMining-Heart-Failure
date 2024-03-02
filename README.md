@@ -64,4 +64,4 @@ Another one we want to explore is:" The number of physical health days experienc
 
 ## Our Colab 
 In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  
-#### Link: (https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls)
+#### Link: [Our Colab](https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls)
