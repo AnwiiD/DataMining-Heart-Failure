@@ -51,8 +51,8 @@ We grouped heart attack cases by age and gender to gain a more detailed understa
 <img src="assets/FandM.png" alt="" width="500"/>
 </p>
 
-### Associations Among Cardiovascular Events:
-Insights into Heart Attacks, Angina, and Strokes"** Additionally, we created another visualization to demonstrate that individuals experiencing heart attacks also tend to suffer from angina and strokes. This graphic provided insights into the co-occurrence of these cardiovascular events, highlighting potential common risk factors or associations within the dataset."
+### Associations Among Cardiovascular Events:Insights into Heart Attacks, Angina, and Strokes" 
+Additionally, we created another visualization to demonstrate that individuals experiencing heart attacks also tend to suffer from angina and strokes. This graphic provided insights into the co-occurrence of these cardiovascular events, highlighting potential common risk factors or associations within the dataset."
 <p aling= "center">
 <img src="assets/comparacionAnginaStroke.png" alt="" width="1000"/>
 </p>
