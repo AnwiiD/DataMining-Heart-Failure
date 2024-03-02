@@ -57,6 +57,7 @@ Insights into Heart Attacks, Angina, and Strokes"** Additionally, we created ano
 <p aling= "center">
 <img src="assets/comparacionAnginaStroke.png" alt="" width="1000"/>
 </p>
+
 ## Our Hypothesis
 Based on key indicators of heart disease, we could assert that there is a significant relationship between the prevalence of heart disease and factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, body mass index (BMI), and pre-existing conditions such as high blood pressure, high cholesterol, smoking habits, and diabetes in the adult population surveyed in the BRFSS dataset.
 
