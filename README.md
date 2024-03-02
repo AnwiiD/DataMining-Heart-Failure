@@ -32,7 +32,8 @@ Meet the team members working on this project:
 
 
 
-
+## Our Hypothesis
+Based on key indicators of heart disease, we could assert that there is a significant relationship between the prevalence of heart disease and factors such as high blood pressure, high cholesterol, smoking habits, and diabetes in the adult population surveyed in the BRFSS dataset.
 
 
 ## Project Details
