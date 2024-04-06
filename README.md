@@ -57,10 +57,16 @@ Additionally, we created another visualization to demonstrate that individuals e
 <img src="assets/comparacionAnginaStroke.png" alt="" width="1000"/>
 </p>
 
-## Our Hypothesis
-Based on key indicators of heart disease, we could assert that there is a significant relationship between the prevalence of heart disease and factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, body mass index (BMI), and pre-existing conditions such as high blood pressure, high cholesterol, smoking habits, and diabetes in the adult population surveyed in the BRFSS dataset.
 
-Another one we want to explore is:" The number of physical health days experienced in the last 30 days is associated with an increased likelihood of having had a heart attack."
+## Introduction
+
+Understanding the complex relationship between various factors and the prevalence of heart disease is crucial for effective prevention and management strategies. In this context, our hypothesis aims to explore the significant associations between key indicators of heart disease and various demographic and health-related factors. Specifically, we focus on factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, body mass index (BMI), and pre-existing conditions including high blood pressure, high cholesterol, smoking habits, and diabetes. By analyzing data from the BRFSS dataset, we seek to uncover patterns and correlations that shed light on the interplay between these variables and the likelihood of heart disease in the adult population.
+
+
+## Our Hypothesis
+
+Our hypothesis posits that there exists a notable correlation between the prevalence of heart disease and the aforementioned factors within the adult population surveyed in the BRFSS dataset. We anticipate that factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, BMI, and pre-existing conditions will exhibit significant associations with the likelihood of heart disease. Additionally, we aim to investigate the specific relationship between the number of physical health days experienced in the last 30 days and the likelihood of having had a heart attack. By examining these relationships, we aim to contribute valuable insights into the understanding and prevention of heart disease.
+
 
 # Model Selection 1: Random Forest Classifier
 ## Objectives for estimation
@@ -126,7 +132,10 @@ F1-score: 0.1296
 In this project, we employed cross-validation, a technique used to assess the performance of a model and avoid overfitting. We also ensured proper handling of both categorical and numerical columns during preprocessing to optimize model training. 
 
 ## Conclusions
-Despite achieving a model precision of 94.27%, indicating a relatively high accuracy in predicting heart attacks, further evaluation reveals areas for improvement. While precision seems good at first glance, other metrics such as recall and F1-score offer a more comprehensive picture. The recall score, which measures the ability of the model to identify all relevant instances, is notably low at 7.45%, indicating that the model misses a significant portion of actual heart attack cases. Similarly, the F1-score, which balances precision and recall, is relatively low at 12.96%. These metrics underscore the need for a more balanced model that doesn't just prioritize accuracy but also effectively identifies positive cases. Additionally, the 50% precision indicates that half of the predicted positive cases were actually negative, suggesting room for improvement in the model's ability to correctly classify instances.
+
+In the field of predictive medicine, the ability to foresee events such as heart attacks using artificial intelligence models has garnered significant interest. In this context, the accuracy of models is fundamental to their clinical utility. However, accuracy alone may not be sufficient to evaluate the effectiveness of a predictive model. In this report, we will examine a model for predicting heart attacks that has achieved an impressive accuracy of 94.27%. Despite this achievement, a more detailed analysis reveals significant deficiencies in terms of recall and F1-score, raising questions about the overall effectiveness of the model in identifying positive cases. This analysis underscores the importance of considering multiple metrics when evaluating the effectiveness of predictive models in medicine and highlights the need to strike a balance between accuracy and the ability to correctly identify relevant cases.
+
+Despite achieving a model precision of 94.27%, indicating a relatively high accuracy in predicting heart attacks, further evaluation reveals areas for improvement. While precision seems good at first glance, other metrics such as recall and F1-score offer a more comprehensive picture. The recall score, which measures the ability of the model to identify all relevant instances, is notably low at 7.45%, indicating that the model misses a significant portion of actual heart attack cases. Similarly, the F1-score, which balances precision and recall, is relatively low at 12.96%. These metrics underscore the need for a more balanced model that doesn't just prioritize accuracy but also effectively identifies positive cases. Additionally, the 50% precision indicates that half of the predicted positive cases were actually negative, suggesting room for improvement in the model's ability to correctly classify instances. It is fundamental to address these deficiencies to achieve a more effective and reliable model in detecting heart attacks, which could have a significant impact on healthcare and public health.
 
 ## Our Colab 
 In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  
