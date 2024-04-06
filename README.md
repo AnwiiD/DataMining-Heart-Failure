@@ -62,6 +62,15 @@ Based on key indicators of heart disease, we could assert that there is a signif
 
 Another one we want to explore is:" The number of physical health days experienced in the last 30 days is associated with an increased likelihood of having had a heart attack."
 
+# Model Selection 1: Random Forest Classifier
+## Objectives for estimation
+<ul>
+  <li>Test the hypothesis that there is a significant relationship between the prevalence of heart disease and the selected factors in the adult population.</li>
+  <li>Use random forest classifier to estimate the strength of association between these indicators and the likelihood of having heart disease.</li>
+  <li>Assess the performance of the random forest classifier utilizing the BRFSS dataset to identify individuals at risk of heart disease, targeting a minimum accuracy of 0.85.</li>
+</ul>
+## Details about model selection
+
 ## Our Colab 
 In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  
 #### Link: [Colab](https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls)
