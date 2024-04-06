@@ -130,4 +130,4 @@ Despite achieving a model precision of 94.27%, indicating a relatively high accu
 
 ## Our Colab 
 In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  
-#### Link: [Colab]([https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls](https://colab.research.google.com/drive/1oqJ3N0Pkx_IKPrnkxjWtKydzer5bo5US#scrollTo=mJ3haQc6m4AC))
+#### Link: [Colab](https://colab.research.google.com/drive/1oqJ3N0Pkx_IKPrnkxjWtKydzer5bo5US?usp=sharing)
