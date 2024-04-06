@@ -69,8 +69,65 @@ Another one we want to explore is:" The number of physical health days experienc
   <li>Use random forest classifier to estimate the strength of association between these indicators and the likelihood of having heart disease.</li>
   <li>Assess the performance of the random forest classifier utilizing the BRFSS dataset to identify individuals at risk of heart disease, targeting a minimum accuracy of 0.85.</li>
 </ul>
+
 ## Details about model selection
+Whe choose Random for our first model selection. 
+Firstly, its ability to mitigate overfitting surpasses that of individual decision trees, crucial for ensuring our model's generalization to unseen data. 
+Additionally, given the imbalanced nature of our dataset, where instances of individuals with and without heart disease may vary significantly, random forest's equitable treatment of each class during training enhances its predictive accuracy. 
+With over 30 input variables, random forest adeptly handles high-dimensional data without necessitating dimensionality reduction techniques.
+Lastly, its robustness to outliers and missing values further reinforces its suitability for our analysis, ensuring reliable predictions even in the presence of data imperfections. 
+# Hyperparameter
+We choose a random state of 42  and also limited the max_depth to 3 for visualisation purpose.
+# Preprocessing and visualisation
+<pre>
+<code>
+
+dfHeart = pd.read_csv('heart_2022_no_nans.csv').sample(frac=0.1, random_state=42)
+labels = [column for column in dfHeart.columns if dfHeart[column].dtype == 'O']
+
+dfHeart.loc[dfHeart['HadHeartAttack'] == 'No', 'HadHeartAttack'] = 0
+dfHeart.loc[dfHeart['HadHeartAttack'] == 'Yes', 'HadHeartAttack'] = 1
+
+X = dfHeart.drop('HadHeartAttack', axis=1)
+y = dfHeart['HadHeartAttack'].astype('int')
+
+# Dividir el conjunto de datos en entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+...
+clf = Pipeline(steps=[('preprocessor', preprocessor), ('classifier', RandomForestClassifier(random_state=42))])
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+</code>
+</pre>
+It starts with data preprocessing, including handling categorical variables through one-hot encoding and encoding target labels to numeric values. The dataset is then split into training and testing sets. Afterward, a pipeline is constructed, incorporating data preprocessing steps and the Random Forest classifier. The model is trained on the training data and evaluated on the test data, with accuracy as the metric. 
+![descarga (4)](https://github.com/AnwiiD/DataMining-Heart-Failure/assets/78710847/a23bdd13-2641-4ebf-b874-04db47dbfe38)
+## Validation methods and the metrics employed.
+<pre>
+  <code>
+  from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+print(f"accuracy: {accuracy:.4f}")
+print(f"Precision: {precision:.4f}")
+print(f"Recall: {recall:.4f}")
+print(f"F1-score: {f1:.4f}")
+  </code>
+</pre>
+Precisión del modelo: 0.9427
+
+Precisión: 0.5000
+
+Recall: 0.0745
+
+F1-score: 0.1296
+
+In this project, we employed cross-validation, a technique used to assess the performance of a model and avoid overfitting. We also ensured proper handling of both categorical and numerical columns during preprocessing to optimize model training. 
+
+## Conclusions
+Despite achieving a model precision of 94.27%, indicating a relatively high accuracy in predicting heart attacks, further evaluation reveals areas for improvement. While precision seems good at first glance, other metrics such as recall and F1-score offer a more comprehensive picture. The recall score, which measures the ability of the model to identify all relevant instances, is notably low at 7.45%, indicating that the model misses a significant portion of actual heart attack cases. Similarly, the F1-score, which balances precision and recall, is relatively low at 12.96%. These metrics underscore the need for a more balanced model that doesn't just prioritize accuracy but also effectively identifies positive cases. Additionally, the 50% precision indicates that half of the predicted positive cases were actually negative, suggesting room for improvement in the model's ability to correctly classify instances.
 
 ## Our Colab 
 In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  
-#### Link: [Colab](https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls)
+#### Link: [Colab]([https://colab.research.google.com/drive/1Iai3o2oUkOMWRZbo2goXvb5BktcFxKcA?usp=sharing#scrollTo=wdW71kB8UVls](https://colab.research.google.com/drive/1oqJ3N0Pkx_IKPrnkxjWtKydzer5bo5US#scrollTo=mJ3haQc6m4AC))
