@@ -153,14 +153,17 @@ plt.show()
   </code>
 </pre>
 Accuracy del modelo Random Forest: 0.9740852441294079
+
 Precision del modelo Random Forest: 0.9719628449717431
+
 Recall del modelo Random Forest: 0.9764322150284481
+
 F1 Score del modelo Random Forest: 0.9741924039173228
 
 In this project, we employed cross-validation, a technique used to assess the performance of a model and avoid overfitting. We also ensured proper handling of both categorical and numerical columns during preprocessing to optimize model training. 
 
 
-# Model Selection 1: Logistic Regression Classifier
+# Model Selection 2: Logistic Regression Classifier
 ## Objectives for estimation
 <ul>
   <li>Test the hypothesis that there is a significant relationship between the prevalence of heart disease and the selected factors in the adult population.</li>
@@ -248,8 +251,11 @@ plt.show()
   </code>
 </pre>
 Accuracy del modelo de Regresión Logística: 0.9706823584331984
+
 Precisión del modelo de Regresión Logística: 0.9835375914753189
+
 Recall del modelo de Regresión Logística: 0.9574995095154012
+
 F1 Score del modelo de Regresión Logística: 0.9703439063033955
 
 In this project, we employed cross-validation, a technique used to assess the performance of a model and avoid overfitting. We also ensured proper handling of both categorical and numerical columns during preprocessing to optimize model training.
