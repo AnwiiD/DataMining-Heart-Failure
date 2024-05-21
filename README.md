@@ -36,13 +36,13 @@ In our analysis, we employed various visualization techniques with the BRFSS dat
 ### Correlation Heatmap:
 We created a correlation heatmap to explore relationships between different variables, particularly those related to key indicators of heart disease. This heatmap provided a quick overview of positive or negative associations among the selected variables.
 <p aling= "center">
-<img src="assets/co.png" alt="" width="500"/>
+<img src="assets/heatmap.png" alt="" width="500"/>
 </p>
 
 ### Countplot by Gender: 
 We generated a countplot to visualize the distribution of heart disease cases based on gender. This type of plot allowed us to determine whether heart disease is more prevalent in males or females, offering a general perspective on the prevalence in the surveyed population.
 <p aling= "center">
-<img src="assets/gender.png" alt="" width="500"/>
+<img src="assets/gender2.png" alt="" width="500"/>
 </p>
 
 ### Age-Grouped Heart Attacks by Gender:
