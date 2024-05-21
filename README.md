@@ -68,12 +68,13 @@ Understanding the complex relationship between various factors and the prevalenc
 Our hypothesis posits that there exists a notable correlation between the prevalence of heart disease and the aforementioned factors within the adult population surveyed in the BRFSS dataset. We anticipate that factors such as physical health days, sex, mental health days, sleep hours, history of heart attacks, BMI, and pre-existing conditions will exhibit significant associations with the likelihood of heart disease. Additionally, we aim to investigate the specific relationship between the number of physical health days experienced in the last 30 days and the likelihood of having had a heart attack. By examining these relationships, we aim to contribute valuable insights into the understanding and prevention of heart disease.
 
 
+
 # Model Selection 1: Random Forest Classifier
 ## Objectives for estimation
 <ul>
   <li>Test the hypothesis that there is a significant relationship between the prevalence of heart disease and the selected factors in the adult population.</li>
   <li>Use random forest classifier to estimate the strength of association between these indicators and the likelihood of having heart disease.</li>
-  <li>Assess the performance of the random forest classifier utilizing the BRFSS dataset to identify individuals at risk of heart disease, targeting a minimum accuracy of 0.85.</li>
+  <li>Assess the performance of the random forest classifier utilizing the BRFSS dataset to identify individuals at risk of heart disease, targeting a minimum accuracy of 0.9741.</li>
 </ul>
 
 ## Details about model selection
@@ -88,54 +89,181 @@ We choose a random state of 42  and also limited the max_depth to 3 for visualis
 <pre>
 <code>
 
-dfHeart = pd.read_csv('heart_2022_no_nans.csv').sample(frac=0.1, random_state=42)
-labels = [column for column in dfHeart.columns if dfHeart[column].dtype == 'O']
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-dfHeart.loc[dfHeart['HadHeartAttack'] == 'No', 'HadHeartAttack'] = 0
-dfHeart.loc[dfHeart['HadHeartAttack'] == 'Yes', 'HadHeartAttack'] = 1
+X = heart_df.drop(columns=['HadHeartAttack_Yes'])
+y = heart_df['HadHeartAttack_Yes']
 
-X = dfHeart.drop('HadHeartAttack', axis=1)
-y = dfHeart['HadHeartAttack'].astype('int')
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=87)
 
-# Dividir el conjunto de datos en entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-...
-clf = Pipeline(steps=[('preprocessor', preprocessor), ('classifier', RandomForestClassifier(random_state=42))])
-clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
+rf_model = RandomForestClassifier(n_estimators=200, random_state=2002)
+rf_model.fit(X_train, y_train)
+
+y_pred = rf_model.predict(X_test)
+
 accuracy = accuracy_score(y_test, y_pred)
-</code>
-</pre>
-It starts with data preprocessing, including handling categorical variables through one-hot encoding and encoding target labels to numeric values. The dataset is then split into training and testing sets. Afterward, a pipeline is constructed, incorporating data preprocessing steps and the Random Forest classifier. The model is trained on the training data and evaluated on the test data, with accuracy as the metric. 
-![descarga (4)](https://github.com/AnwiiD/DataMining-Heart-Failure/assets/78710847/a23bdd13-2641-4ebf-b874-04db47dbfe38)
-## Validation methods and the metrics employed.
-<pre>
-  <code>
-  from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 precision = precision_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
 f1 = f1_score(y_test, y_pred)
-print(f"accuracy: {accuracy:.4f}")
-print(f"Precision: {precision:.4f}")
-print(f"Recall: {recall:.4f}")
-print(f"F1-score: {f1:.4f}")
+
+print("Accuracy del modelo Random Forest:", accuracy)
+print("Precision del modelo Random Forest:", precision)
+print("Recall del modelo Random Forest:", recall)
+print("F1 Score del modelo Random Forest:", f1)
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=['No Heart Attack', 'Heart Attack'], yticklabels=['No Heart Attack', 'Heart Attack'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Matriz de Confusión')
+plt.show()
+
+
+</code>
+</pre>
+It starts with data preprocessing, including handling categorical variables through one-hot encoding and encoding target labels to numeric values. The dataset is then split into training and testing sets. Afterward, a pipeline is constructed, incorporating data preprocessing steps and the Random Forest classifier. The model is trained on the training data and evaluated on the test data, with accuracy as the metric. 
+
+<p aling= "center">
+<img src="assets/bosque.png" alt="" width="1000"/>
+</p>
+
+## Validation methods and the metrics employed.
+<pre>
+  <code>
+print("Accuracy del modelo Random Forest:", accuracy)
+print("Precision del modelo Random Forest:", precision)
+print("Recall del modelo Random Forest:", recall)
+print("F1 Score del modelo Random Forest:", f1)
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=['No Heart Attack', 'Heart Attack'], yticklabels=['No Heart Attack', 'Heart Attack'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Matriz de Confusión')
+plt.show()
   </code>
 </pre>
-Precisión del modelo: 0.9427
-
-Precisión: 0.5000
-
-Recall: 0.0745
-
-F1-score: 0.1296
+Accuracy del modelo Random Forest: 0.9740852441294079
+Precision del modelo Random Forest: 0.9719628449717431
+Recall del modelo Random Forest: 0.9764322150284481
+F1 Score del modelo Random Forest: 0.9741924039173228
 
 In this project, we employed cross-validation, a technique used to assess the performance of a model and avoid overfitting. We also ensured proper handling of both categorical and numerical columns during preprocessing to optimize model training. 
 
+
+# Model Selection 1: Logistic Regression Classifier
+## Objectives for estimation
+<ul>
+  <li>Test the hypothesis that there is a significant relationship between the prevalence of heart disease and the selected factors in the adult population.</li>
+  <li>Use logistic regression to estimate the strength of association between these indicators and the likelihood of having heart disease.</li>
+  <li>Assess the performance of the logistic regression model utilizing the BRFSS dataset to identify individuals at risk of heart disease, targeting a minimum accuracy of 0.9707.</li>
+</ul>
+
+## Details about model selection
+
+We chose Logistic Regression for our model selection due to its simplicity and interpretability. Logistic Regression provides a clear understanding of the relationship between the input features and the target variable, which is crucial for medical data where interpretability is important. Additionally, it is efficient to train and performs well on smaller datasets, making it suitable for our data. Logistic Regression also handles imbalanced datasets effectively by providing probabilistic predictions, which can be adjusted to different threshold levels to improve sensitivity or specificity as needed.
+
+## Hyperparameters
+We chose a random state of 42 and set the maximum number of iterations to 2000 to ensure convergence.
+
+## Preprocessing and visualization
+<pre>
+<code>
+
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+X = heart_df.drop(columns=['HadHeartAttack_Yes'])
+y = heart_df['HadHeartAttack_Yes']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=87)
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+logreg_model = LogisticRegression(max_iter=2000, random_state=2002)
+logreg_model.fit(X_train, y_train)
+
+y_pred = logreg_model.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+
+print("Accuracy del modelo de Regresión Logística:", accuracy)
+print("Precisión del modelo de Regresión Logística:", precision)
+print("Recall del modelo de Regresión Logística:", recall)
+print("F1 Score del modelo de Regresión Logística:", f1)
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=['No Heart Attack', 'Heart Attack'], yticklabels=['No Heart Attack', 'Heart Attack'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Matriz de Confusión')
+plt.show()
+
+</code>
+</pre>
+It starts with data preprocessing, including standardizing numerical variables and encoding target labels to numeric values. The dataset is then split into training and testing sets. Afterward, a pipeline is constructed, incorporating data preprocessing steps and the Logistic Regression classifier. The model is trained on the training data and evaluated on the test data, with accuracy as the metric.
+
+<p aling= "center">
+<img src="assets/matrix.png" alt="" width="1000"/>
+</p>
+
+## Validation methods and the metrics employed
+
+<pre>
+  <code>
+print("Accuracy del modelo de Regresión Logística:", accuracy)
+print("Precisión del modelo de Regresión Logística:", precision)
+print("Recall del modelo de Regresión Logística:", recall)
+print("F1 Score del modelo de Regresión Logística:", f1)
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=['No Heart Attack', 'Heart Attack'], yticklabels=['No Heart Attack', 'Heart Attack'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Matriz de Confusión')
+plt.show()
+  </code>
+</pre>
+Accuracy del modelo de Regresión Logística: 0.9706823584331984
+Precisión del modelo de Regresión Logística: 0.9835375914753189
+Recall del modelo de Regresión Logística: 0.9574995095154012
+F1 Score del modelo de Regresión Logística: 0.9703439063033955
+
+In this project, we employed cross-validation, a technique used to assess the performance of a model and avoid overfitting. We also ensured proper handling of both categorical and numerical columns during preprocessing to optimize model training.
+
+
+
+
 ## Conclusions
 
-In the field of predictive medicine, the ability to foresee events such as heart attacks using artificial intelligence models has garnered significant interest. In this context, the accuracy of models is fundamental to their clinical utility. However, accuracy alone may not be sufficient to evaluate the effectiveness of a predictive model. In this report, we will examine a model for predicting heart attacks that has achieved an impressive accuracy of 94.27%. Despite this achievement, a more detailed analysis reveals significant deficiencies in terms of recall and F1-score, raising questions about the overall effectiveness of the model in identifying positive cases. This analysis underscores the importance of considering multiple metrics when evaluating the effectiveness of predictive models in medicine and highlights the need to strike a balance between accuracy and the ability to correctly identify relevant cases.
+Both the Random Forest and Logistic Regression models demonstrate excellent performance in predicting heart attacks, achieving high accuracy, precision, recall, and F1 scores. The Random Forest model, with an accuracy of 97.41%, a precision of 97.20%, and a recall of 97.64%, excels in correctly identifying positive cases of heart attacks. This makes it particularly effective at minimizing false negatives, ensuring that most actual heart attack cases are detected. This model is ideal when the priority is to avoid missing any potential heart attack cases, thus providing a more comprehensive screening tool.
 
-Despite achieving a model precision of 94.27%, indicating a relatively high accuracy in predicting heart attacks, further evaluation reveals areas for improvement. While precision seems good at first glance, other metrics such as recall and F1-score offer a more comprehensive picture. The recall score, which measures the ability of the model to identify all relevant instances, is notably low at 7.45%, indicating that the model misses a significant portion of actual heart attack cases. Similarly, the F1-score, which balances precision and recall, is relatively low at 12.96%. These metrics underscore the need for a more balanced model that doesn't just prioritize accuracy but also effectively identifies positive cases. Additionally, the 50% precision indicates that half of the predicted positive cases were actually negative, suggesting room for improvement in the model's ability to correctly classify instances. It is fundamental to address these deficiencies to achieve a more effective and reliable model in detecting heart attacks, which could have a significant impact on healthcare and public health.
+On the other hand, the Logistic Regression model, with an accuracy of 97.07%, a precision of 98.35%, and a recall of 95.75%, offers slightly better precision. This model is more effective at reducing the number of false positives, meaning it is more reliable at predicting heart attacks only when they are very likely to occur. This makes it preferable in scenarios where it is crucial to minimize the number of incorrect heart attack predictions, thereby reducing unnecessary stress and medical interventions for patients.
+
+In summary, while both models are highly effective at predicting heart attacks, the choice between them should be guided by whether the primary goal is to maximize the detection of true positive cases (favoring the Random Forest) or to minimize false positive predictions (favoring Logistic Regression).
 
 ## Our Colab 
 In this collaborative Google Colab notebook, we are actively processing and analyzing the key indicators of heart disease using the Behavioral Risk Factor Surveillance System (BRFSS) dataset.  
